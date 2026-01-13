@@ -32,3 +32,11 @@ export const setCity = (city) => {
         payload : city
     }
 }
+
+
+export const fetchWeather = (city) => {
+    return {
+        type : FETCT_WEATHER,
+        payload : city
+    }
+}
