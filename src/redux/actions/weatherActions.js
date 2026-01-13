@@ -1,5 +1,7 @@
 import {FETCT_WEATHER_PENDING, FETCT_CURRENT_SUCCESS, FETCT_FORECAST_SUCCESS, FETCT_WEATHER_ERROR, SET_CITY} from "../constants/weatherConstants";
+import axios from "axios";
 
+const API_KEY = import.meta.env.local.VITE_WEATHER_API
 
 export const fetchWeatherPending = () => {
     return {
@@ -35,8 +37,5 @@ export const setCity = (city) => {
 
 
 export const fetchWeather = (city) => {
-    return {
-        type : FETCT_WEATHER,
-        payload : city
-    }
+   axios.get('https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}')
 }
