@@ -1,4 +1,4 @@
-import { FETCT_CURRENT_SUCCESS, FETCT_FORECAST_SUCCESS, FETCT_WEATHER_ERROR, FETCT_WEATHER_PENDING, FETCT_WEATHER_SUCCESS, SET_CITY } from "../constants/weatherConstants";
+import { FETCH_CURRENT_SUCCESS, FETCH_FORECAST_SUCCESS, FETCH_WEATHER_ERROR, FETCH_WEATHER_PENDING, SET_CITY } from "../constants/weatherConstants.js";
 
 
 const initialState = {
@@ -18,13 +18,13 @@ const initialState = {
 
 
 const weatherReducer = (state = initialState, action) => {
-    if (action.type === FETCT_WEATHER_PENDING) {
+    if (action.type === FETCH_WEATHER_PENDING) {
         return { ...state, loading: true, error: null }
-    } else if (action.type === FETCT_CURRENT_SUCCESS) {
+    } else if (action.type === FETCH_CURRENT_SUCCESS) {
         return { ...state, loading: false, current: action.payload }
-    } else if (action.type === FETCT_FORECAST_SUCCESS) {
+    } else if (action.type === FETCH_FORECAST_SUCCESS) {
         return { ...state, loading: false, forecast: action.payload }
-    } else if (action.type === FETCT_WEATHER_ERROR) {
+    } else if (action.type === FETCH_WEATHER_ERROR) {
         return { ...state, loading: false, error: action.payload }
     } else if (action.type === SET_CITY) {
         return { ...state, city: action.payload }
