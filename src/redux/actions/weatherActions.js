@@ -37,7 +37,9 @@ export const setCity = (city) => {
 
 
 export const fetchWeather = (city) => {
-    const response = axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+   return async(dispatch) => {
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
     console.log(response)
+   }
 }
     

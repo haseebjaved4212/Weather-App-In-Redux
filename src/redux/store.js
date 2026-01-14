@@ -1,7 +1,14 @@
-import {createStore} from "redux";
+import {createStore, compose , applyMiddleware} from "redux";
 import weatherReducer from "./reducers/weatherReducer";
+import {thunk }from "redux-thunk";
 
-const store = createStore(weatherReducer);
+const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(
+    weatherReducer,
+    compose(
+        applyMiddleware(thunk),
+        reduxDevTools
+    ));
 
 
 export default store;
