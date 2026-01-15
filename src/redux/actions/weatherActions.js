@@ -40,9 +40,12 @@ export const fetchWeather = (city) => {
     return async (dispatch) => {
         try {
             dispatch(fetchWeatherPending());
-            const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
-            dispatch(fetchCurrentSuccess(response.data));
-            console.log(response)
+            const currentWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+            dispatch(fetchCurrentSuccess(currentWeatherDetails.data));
+            console.log(currentWeatherDetails)
+            const forecastWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
+            dispatch(fetchForecastSuccess(forecastWeatherDetails.data));
+            console.log(forecastWeatherDetails)
         } catch (error) {
             dispatch(fetchWeatherError(error));
             console.error(error);
