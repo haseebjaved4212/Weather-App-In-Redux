@@ -34,7 +34,7 @@ const Search = () => {
                     type="search"
                     required
                     placeholder="Search"
-                    value={city}
+                 value={city}
                     onChange={handleInput}
                 />
             </label>
