@@ -35,20 +35,41 @@ export const setCity = (city) => {
     }
 }
 
-
 export const fetchWeather = (city) => {
     return async (dispatch) => {
+
+        dispatch(fetchWeatherPending())
+
         try {
-            dispatch(fetchWeatherPending());
-            const currentWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
-            dispatch(fetchCurrentSuccess(currentWeatherDetails.data));
-            console.log(currentWeatherDetails)
-            const forecastWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
-            dispatch(fetchForecastSuccess(forecastWeatherDetails.data));
-            console.log(forecastWeatherDetails)
+            const currentWeatherDetails = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+
+            const forecastDetails = await axios(`https://pro.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
+
+            dispatch(fetchCurrentSuccess(currentWeatherDetails.data))
+            dispatch(fetchForecastSuccess(forecastDetails.data.list))
         } catch (error) {
-            dispatch(fetchWeatherError(error));
-            console.error(error);
+            dispatch(fetchWeatherError('Something went wrong'))
         }
+
     }
 }
+// export const fetchWeather = (city) => {
+//     return async (dispatch) => {
+//         try {
+//             dispatch(fetchWeatherPending());
+//             const currentWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
+//             dispatch(fetchCurrentSuccess(currentWeatherDetails.data));
+//             console.log(currentWeatherDetails.data)
+
+
+//             const forecastWeatherDetails = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`)
+//             dispatch(fetchForecastSuccess(forecastWeatherDetails.data.list));
+//             console.log(forecastWeatherDetails.data.list)
+
+
+//         } catch (error) {
+//             dispatch(fetchWeatherError(error));
+//             console.error(error);
+//         }
+//     }
+// }

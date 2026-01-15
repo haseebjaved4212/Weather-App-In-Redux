@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useEffect } from "react"
 
 
@@ -7,14 +7,14 @@ import { useEffect } from "react"
 import { fetchWeather } from "./redux/actions/weatherActions"
 
 const App = () => {
+
+  const state = useSelector((state) => state)
   const dispatch = useDispatch()
 
 
   useEffect(() => {
     dispatch(fetchWeather("Karachi"))
   }, [])
-
-  // const [city, setCity] = useState("Karachi")
   return (
     <></>
   )
