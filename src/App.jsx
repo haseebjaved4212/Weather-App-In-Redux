@@ -14,7 +14,7 @@ const App = () => {
     dispatch(fetchWeather("Karachi"))
   }, [])
   return ( 
-    <div className=" p-10 flex justify-center items-center flex-col">
+    <div className=" p-12 flex justify-center items-center flex-col">
     <Search/>
     </div>
   )
