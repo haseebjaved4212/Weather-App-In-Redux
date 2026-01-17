@@ -5,8 +5,8 @@ const CurrentWeather = () => {
 
     const {current, loading, error} = useSelector(state=>state.weatherDetails);
 
-    if(loading) return <p className='p-10'>Loading.......</p>
-    if(error) return <p>{error}</p>
+    if(loading) return <p className='p-10 opacity-50'>Loading.......</p>
+    if(error) return <p className='text-red-500 '>{error}</p>
     if(!current) return null;
 
     return (
