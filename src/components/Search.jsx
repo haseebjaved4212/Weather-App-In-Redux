@@ -3,7 +3,7 @@ import { fetchWeather, setCity } from '../redux/actions/weatherActions';
 
 const Search = () => {
 
-    const city = useSelector(state => state.city)
+    const city = useSelector(state => state.weatherDetails.city)
     const dispatch = useDispatch();
 
     const handleInput = (e) => {
