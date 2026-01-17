@@ -6,18 +6,23 @@ import CurrentWeather from "./components/CurrentWeather"
 import ForecastDetails from "./components/ForecastDetails"
 const App = () => {
 
-const city = useSelector((state) => state.weatherDetails.city)
+  const city = useSelector((state) => state.weatherDetails.city)
   const dispatch = useDispatch()
 
 
   useEffect(() => {
     dispatch(fetchWeather(city))
   }, [])
-  return ( 
-    <div className=" p-12 flex justify-center items-center flex-col gap-10">
-    <Search/>
-    <CurrentWeather/>
-    <ForecastDetails/>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-base-200 to-base-300 flex flex-col items-center py-8 px-4 md:px-8 gap-8">
+
+      <Search />
+
+      <div className="flex flex-col gap-6 w-full max-w-4xl items-center">
+        <CurrentWeather />
+        <ForecastDetails />
+      </div>
+
     </div>
   )
 }
