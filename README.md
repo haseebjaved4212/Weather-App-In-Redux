@@ -57,7 +57,7 @@ Weather App/
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/your-username/weather-app.git
+    git clone https://github.com/haseebjaved4212/weather-app.git
     cd weather-app
     ```
 
@@ -92,4 +92,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+© 2026 Haseeb Javed.
+
+
+--- 
+<h3 align="center">
+    <img src="https://readme-typing-svg.herokuapp.com?key=1&width=400&height=40&lines=Made+with+%E2%9D%A4%EF%B8%8F+by+Haseeb+Javed" alt="Typing SVG" />
+</h3>
