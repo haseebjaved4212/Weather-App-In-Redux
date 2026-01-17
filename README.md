@@ -1,16 +1,95 @@
-# React + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive weather application built with React, Redux, and TailwindCSS. This app allows users to search for cities and view current weather conditions along with a 4-day forecast.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Real-time Weather**: Fetches current weather data including temperature, humidity, and conditions.
+- **Forecast**: Provides a 4-day weather forecast.
+- **Responsive Design**: Fully responsive UI using TailwindCSS and DaisyUI, optimized for both mobile and desktop.
+- **State Management**: Robust state management using Redux and Redux Thunk for asynchronous actions.
+- **Modern UI**: Clean and visually appealing interface with a gradient background and glassmorphism effects.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend Framework**: [React](https://react.dev/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **State Management**: [Redux](https://redux.js.org/) & [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+- **API**: [OpenWeatherMap API](https://openweathermap.org/api)
 
-## Expanding the ESLint configuration
+## Folder Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+Weather App/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Project assets (images, icons)
+│   ├── components/      # and Reusable UI components
+│   │   ├── CurrentWeather.jsx  # Displays current weather info
+│   │   ├── ForecastDetails.jsx # Displays 4-day forecast
+│   │   └── Search.jsx          # Search bar component
+│   ├── redux/           # Redux state management
+│   │   ├── actions/     # Action creators (weatherActions.js)
+│   │   ├── constants/   # Action types (weatherConstants.js)
+│   │   ├── reducers/    # Reducers (weatherReducer.js, index.js)
+│   │   └── store.js     # Redux store configuration
+│   ├── App.jsx          # Main application component with layout
+│   ├── main.jsx         # Entry point
+│   └── index.css        # Global styles (Tailwind imports)
+├── .gitignore           # Git ignore rules
+├── eslint.config.js     # Linting configuration
+├── index.html           # HTML template
+├── package.json         # Project dependencies and scripts
+├── postcss.config.js    # PostCSS configuration
+├── tailwind.config.js   # Tailwind configuration
+└── vite.config.js       # Vite configuration
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/your-username/weather-app.git
+    cd weather-app
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Configure API Key**
+    - Open `src/redux/actions/weatherActions.js` (or create a `.env` file if configured).
+    - Replace the API key placeholder with your OpenWeatherMap API key.
+
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+5.  **Build for production**
+    ```bash
+    npm run build
+    ```
+
+## Usage
+
+1.  Enter a city name in the search bar.
+2.  Press **Enter** or click the **Search** button.
+3.  View the current weather details and the upcoming forecast cards.
+
+## contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
